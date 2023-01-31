@@ -1,0 +1,39 @@
+.details__section {
+  background-color: var(--green);
+  padding: 20px;
+  border-radius: 10px;
+}
+.details__header {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+}
+.details__income {
+  background-color: #2ae04e;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.details__header p {
+  line-height: 40px;
+}
+table {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  padding: 10px;
+}
+th {
+  text-align: left;
+}
+td {
+  border-top: 2px solid var(--grey);
+}
+.details__table {
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 10px;
+}

@@ -8,9 +8,10 @@
 }
 .currency__input {
   padding: 10px 30px;
-  width: 100%;
+  width: calc(100% - 107px);
   border: 1px solid #c8c8c8;
-  border-radius: 6px;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
 }
 .currency_wrapper select {
   position: absolute;
@@ -32,12 +33,12 @@
 }
 .btn_container button {
   padding: 10px 20px;
-  border: 1px solid #c8c8c8;
+  border: 1px solid var(--grey);
   border-radius: 6px;
   cursor: pointer;
 }
 .btn_container button:hover {
-  background-color: #0ba488c7;
+  background-color: var(--green);
 }
 .btn__gross {
   grid-area: gross;
@@ -47,5 +48,5 @@
 }
 .btn__calc {
   grid-area: calc;
-  background-color: #0ba4887c;
+  background-color: var(--green);
 }

@@ -72,9 +72,16 @@ nav,
 section {
   display: block;
 }
+:root {
+  --green: #bfedc8;
+  --grey: #c8c8c8;
+  --white: #ffffff;
+}
+::selection {
+  background-color: var(--green);
+}
 .app-position {
-  height: 100vh;
-  max-width: 600px;
+  max-width: 800px;
   margin: 50px auto;
 }
 .app-wrapper {
@@ -84,7 +91,9 @@ section {
   border-radius: 10px;
   padding: 50px;
   box-shadow: 0px 0px 10px -6px rgba(0,0,0,0.75);
+  /* height: 420px; */
 }
 .padding {
   padding: 20px 0 10px;
 }
+

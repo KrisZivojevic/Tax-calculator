@@ -7,9 +7,9 @@
   list-style-type: none;
   cursor: pointer;
   padding: 10px 20px;
-  background-color: #c8c8c8;
+  background-color: var(--grey);
   border-radius: 10px 10px 0 0;
 }
 .active {
-  background-color: #0ba4887c;
+  background-color: var(--green);
 }

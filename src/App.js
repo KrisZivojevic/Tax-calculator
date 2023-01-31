@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from './components/Header/Header';
 import Income from './components/Income/Income';
+import IncomeDetails from './components/IncomeDetails/IncomeDetails';
 import Navigation from './components/Navigation/Navigation';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         <div className="card">
           <Header />
           {active === 0 && <Income />}
-          {active === 1 && <h1>Income details view</h1>}
+          {active === 1 && <IncomeDetails />}
         </div>
       </div>
     </div>
