@@ -1,11 +1,26 @@
-import classes from './IncomeDetails.module.css';
+import classes from "./IncomeDetails.module.css";
 
-const IncomeDetails = () => {
+const freqConsts = {
+  Weekly: 1,
+  Fortnightly: 2,
+  Monthly: 4,
+  Annually: 48,
+};
+
+const IncomeDetails = ({ saveIncomeData }) => {
+  const { netWeekly, frequency } = saveIncomeData;
+
+  const netFort = netWeekly * 2;
+  const netMonthly = netWeekly * 4;
+  const netAnnually = netWeekly * 48;
+
   return (
     <section className={classes.details__section}>
       <div className={classes.details__header}>
-        <span className={classes.details__income}>$ 9 078</span>
-        <p>is your net fortnightly income</p>
+        <span className={classes.details__income}>
+          {netWeekly * freqConsts[frequency]}
+        </span>
+        <p>is your net {frequency} income</p>
       </div>
 
       <div className={classes.details__table}>
@@ -18,33 +33,32 @@ const IncomeDetails = () => {
           </tr>
           <tr>
             <td>Weekly</td>
-            <td>$ 7 500</td>
-            <td>$ 1 178</td>
-            <td>$ 4 539</td>
+            <td>$ {(netWeekly / 0.7).toFixed(2)}</td>
+            <td>$ {(netWeekly / 0.3).toFixed(2)}</td>
+            <td>$ {netWeekly.toFixed(2)}</td>
           </tr>
           <tr>
             <td>Fortnightly</td>
-            <td>$ 15 000</td>
-            <td>$ 2 428</td>
-            <td>$ 9 078</td>
+            <td>$ {(netFort / 0.7).toFixed(2)}</td>
+            <td>$ {(netFort / 0.3).toFixed(2)}</td>
+            <td>$ {netFort.toFixed(2)}</td>
           </tr>
           <tr>
             <td>Monthly</td>
-            <td>$ 32 500</td>
-            <td>$ 5 611</td>
-            <td>$ 19 669</td>
+            <td>$ {(netMonthly / 0.7).toFixed(2)}</td>
+            <td>$ {(netMonthly / 0.3).toFixed(2)}</td>
+            <td>$ {netMonthly.toFixed(2)}</td>
           </tr>
           <tr>
             <td>Annually</td>
-            <td>$ 390 000</td>
-            <td>$ 153 967</td>
-            <td>$ 236 033</td>
+            <td>$ {(netAnnually / 0.7).toFixed(2)}</td>
+            <td>$ {(netAnnually / 0.3).toFixed(2)}</td>
+            <td>$ {netAnnually.toFixed(2)}</td>
           </tr>
         </table>
-
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default IncomeDetails;

@@ -76,6 +76,8 @@ section {
   --green: #bfedc8;
   --grey: #c8c8c8;
   --white: #ffffff;
+  --red: #ff0000;
+  --light-red: #fc9c9c;
 }
 ::selection {
   background-color: var(--green);
