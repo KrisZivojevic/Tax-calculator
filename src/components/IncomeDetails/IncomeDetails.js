@@ -1,5 +1,6 @@
 import { shortenDecimal } from "../../helpers/helpers";
 import classes from "./IncomeDetails.module.css";
+import Row from "./Row/Row";
 
 const freqConsts = {
   Weekly: 1,
@@ -14,6 +15,13 @@ const IncomeDetails = ({ saveIncomeData }) => {
   const netFort = netWeekly * 2;
   const netMonthly = netWeekly * 4;
   const netAnnually = netWeekly * 48;
+
+  const rows = [
+    {title: "Weekly", income: netWeekly},
+    {title: "Fortnightly", income: netFort},
+    {title: "Monthly", income: netMonthly},
+    {title: "Annually", income: netAnnually},
+  ]
 
   return (
     <section className={classes.details__section}>
@@ -35,30 +43,7 @@ const IncomeDetails = ({ saveIncomeData }) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Weekly</td>
-              <td>{shortenDecimal(netWeekly / 0.7)}</td>
-              <td>{shortenDecimal(netWeekly / 0.3)}</td>
-              <td>{shortenDecimal(netWeekly)}</td>
-            </tr>
-            <tr>
-              <td>Fortnightly</td>
-              <td>{shortenDecimal(netFort / 0.7)}</td>
-              <td>{shortenDecimal(netFort / 0.3)}</td>
-              <td>{shortenDecimal(netFort)}</td>
-            </tr>
-            <tr>
-              <td>Monthly</td>
-              <td>{shortenDecimal(netMonthly / 0.7)}</td>
-              <td>{shortenDecimal(netMonthly / 0.3)}</td>
-              <td>{shortenDecimal(netMonthly)}</td>
-            </tr>
-            <tr>
-              <td>Annually</td>
-              <td>{shortenDecimal(netAnnually / 0.7)}</td>
-              <td>{shortenDecimal(netAnnually / 0.3)}</td>
-              <td>{shortenDecimal(netAnnually)}</td>
-            </tr>
+            {rows.map(row => <Row key={row.title} title={row.title} income={row.income} />)}
           </tbody>
         </table>
       </div>
