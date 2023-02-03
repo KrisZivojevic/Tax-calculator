@@ -7,7 +7,7 @@ import Navigation from "./components/Navigation/Navigation";
 function App() {
   const [active, setActive] = useState(0);
   const [income, setIncome] = useState("");
-  const [incomeType, setIncomeType] = useState("");
+  const [incomeType, setIncomeType] = useState("net");
   const [frequency, setFrequency] = useState("Weekly");
   const [saveIncomeData, setSaveIncomeData] = useState({
     netWeekly: 0,
@@ -53,18 +53,19 @@ function App() {
       frequency,
     };
 
-    setSaveIncomeData(incomeData);
-
-    setActive(1);
-
-    setIncome("");
-    setIncomeType("");
-    setFrequency("Weekly");
+    if (income > 0) {
+      setSaveIncomeData(incomeData);
+  
+      setActive(1);
+  
+      setIncome("");
+      setIncomeType("");
+      setFrequency("Weekly");
+    }
   };
 
   return (
     <div className="app-position">
-      <div className="app-wrapper">
         <Navigation activeTab={active} activeHandler={activeHandler} />
         <div className="card">
           <Header />
@@ -81,7 +82,6 @@ function App() {
           )}
           {active === 1 && <IncomeDetails saveIncomeData={saveIncomeData} />}
         </div>
-      </div>
     </div>
   );
 }

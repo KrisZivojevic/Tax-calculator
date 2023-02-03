@@ -78,6 +78,7 @@ section {
   --white: #ffffff;
   --red: #ff0000;
   --light-red: #fc9c9c;
+  --kiwi: #2ae04e;
 }
 ::selection {
   background-color: var(--green);
@@ -86,16 +87,39 @@ section {
   max-width: 800px;
   margin: 50px auto;
 }
-.app-wrapper {
-  min-width: 600px;
-}
 .card {
   border-radius: 10px;
   padding: 50px;
   box-shadow: 0px 0px 10px -6px rgba(0,0,0,0.75);
-  /* height: 420px; */
+  height: 550px;
 }
 .padding {
   padding: 20px 0 10px;
+}
+
+@media only screen and (max-width: 992px) {
+  .app-position {
+    max-width: 600px;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .app-position {
+    max-width: 500px;
+  }
+  .card {
+    padding: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .app-position {
+    max-width: 400px;
+    padding: 0 10px;
+  }
+  .card {
+    padding: 15px;
+    height: 350px;
+  }
 }
 

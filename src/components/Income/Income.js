@@ -10,14 +10,15 @@ const Income = ({
   calculateHandler,
 }) => {
   return (
-    <div>
+    <section className={classes.income__section}>
       <p className="padding">What is your total income?</p>
       <div className={classes.currency_wrapper}>
         <span className={classes.currency_symbol}>$</span>
         <input
           type="number"
           placeholder="e.g. 12000"
-          min="1"
+          min="1.000000000"
+          step="0.01"
           className={classes.currency__input}
           value={income}
           onChange={incomeHandler}
@@ -35,7 +36,7 @@ const Income = ({
         <button className={`${classes.btn__net} ${incomeType === 'net' ? classes.btn__active : ''}`} onClick={() => incomeTypeHandler('net')}>Net Income</button>
         <button className={classes.btn__calc} onClick={calculateHandler}>Calculate</button>
       </div>
-    </div>
+    </section>
   );
 };
 

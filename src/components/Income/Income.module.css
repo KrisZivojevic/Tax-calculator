@@ -1,3 +1,7 @@
+.income__section {
+  width: 70%;
+  margin: 0 auto;
+}
 .currency_wrapper {
   position: relative;
 }
@@ -24,6 +28,7 @@
   border: 1px solid #c8c8c8;
   border-left: none;
   border-radius: 0 6px 6px 0;
+  cursor: pointer;
 }
 .btn_container {
   display: grid;
@@ -54,6 +59,15 @@
   grid-area: calc;
   background-color: var(--green);
 }
+button.btn__calc:hover {
+  background-color: var(--kiwi);
+}
 .btn__active {
   background-color: var(--green);
+}
+
+@media only screen and (max-width: 600px) {
+  .income__section {
+    width: 100%;
+  }
 }

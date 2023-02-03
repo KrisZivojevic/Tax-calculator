@@ -9,7 +9,7 @@
   padding: 20px 0;
 }
 .details__income {
-  background-color: #2ae04e;
+  background-color: var(--kiwi);
   padding: 10px 20px;
   border-radius: 10px;
 }
@@ -36,4 +36,26 @@ td {
   padding: 30px;
   background-color: var(--white);
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 730px) {
+  .details__table {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .details__section {
+    padding: 10px;
+  }
+  .details__header {
+    font-size: 12px;
+  }
+  .details__income {
+    padding: 10px;
+  }
+  th, td {
+    padding: 5px;
+    font-size: 10px;
+  }
 }

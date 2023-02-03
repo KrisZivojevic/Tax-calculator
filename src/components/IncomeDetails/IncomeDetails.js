@@ -1,3 +1,4 @@
+import { shortenDecimal } from "../../helpers/helpers";
 import classes from "./IncomeDetails.module.css";
 
 const freqConsts = {
@@ -18,43 +19,47 @@ const IncomeDetails = ({ saveIncomeData }) => {
     <section className={classes.details__section}>
       <div className={classes.details__header}>
         <span className={classes.details__income}>
-          {netWeekly * freqConsts[frequency]}
+          $ {shortenDecimal(netWeekly * freqConsts[frequency])}
         </span>
-        <p>is your net {frequency} income</p>
+        <p>is your net <b>{frequency}</b> income</p>
       </div>
 
       <div className={classes.details__table}>
         <table>
-          <tr>
-            <th>Frequency</th>
-            <th>Gross Income</th>
-            <th>Tax</th>
-            <th>Net Income</th>
-          </tr>
-          <tr>
-            <td>Weekly</td>
-            <td>$ {(netWeekly / 0.7).toFixed(2)}</td>
-            <td>$ {(netWeekly / 0.3).toFixed(2)}</td>
-            <td>$ {netWeekly.toFixed(2)}</td>
-          </tr>
-          <tr>
-            <td>Fortnightly</td>
-            <td>$ {(netFort / 0.7).toFixed(2)}</td>
-            <td>$ {(netFort / 0.3).toFixed(2)}</td>
-            <td>$ {netFort.toFixed(2)}</td>
-          </tr>
-          <tr>
-            <td>Monthly</td>
-            <td>$ {(netMonthly / 0.7).toFixed(2)}</td>
-            <td>$ {(netMonthly / 0.3).toFixed(2)}</td>
-            <td>$ {netMonthly.toFixed(2)}</td>
-          </tr>
-          <tr>
-            <td>Annually</td>
-            <td>$ {(netAnnually / 0.7).toFixed(2)}</td>
-            <td>$ {(netAnnually / 0.3).toFixed(2)}</td>
-            <td>$ {netAnnually.toFixed(2)}</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Frequency</th>
+              <th>Gross</th>
+              <th>Tax (30%)</th>
+              <th>Net</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Weekly</td>
+              <td>{shortenDecimal(netWeekly / 0.7)}</td>
+              <td>{shortenDecimal(netWeekly / 0.3)}</td>
+              <td>{shortenDecimal(netWeekly)}</td>
+            </tr>
+            <tr>
+              <td>Fortnightly</td>
+              <td>{shortenDecimal(netFort / 0.7)}</td>
+              <td>{shortenDecimal(netFort / 0.3)}</td>
+              <td>{shortenDecimal(netFort)}</td>
+            </tr>
+            <tr>
+              <td>Monthly</td>
+              <td>{shortenDecimal(netMonthly / 0.7)}</td>
+              <td>{shortenDecimal(netMonthly / 0.3)}</td>
+              <td>{shortenDecimal(netMonthly)}</td>
+            </tr>
+            <tr>
+              <td>Annually</td>
+              <td>{shortenDecimal(netAnnually / 0.7)}</td>
+              <td>{shortenDecimal(netAnnually / 0.3)}</td>
+              <td>{shortenDecimal(netAnnually)}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </section>

@@ -13,3 +13,6 @@
 .active {
   background-color: var(--green);
 }
+.nav__list li:hover {
+  background-color: var(--green);
+}

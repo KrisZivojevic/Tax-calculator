@@ -1,8 +1,15 @@
 .header__title {
   display: flex;
+  justify-content: center;
   gap: 20px;
   padding: 20px 0;
 }
 .header__title h2 {
   line-height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .header__title h2 {
+    font-size: 20px;
+  }
 }
