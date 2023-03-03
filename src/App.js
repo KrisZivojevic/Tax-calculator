@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Income from "./components/Income/Income";
 import IncomeDetails from "./components/IncomeDetails/IncomeDetails";
 import Navigation from "./components/Navigation/Navigation";
+import ThemeContext from "./context/ThemeContext";
 
 function App() {
   const [active, setActive] = useState(0);
@@ -13,13 +14,14 @@ function App() {
     netWeekly: 0,
     frequency: "Weekly",
   });
+  const [theme, setTheme] = useState("light");
 
   const activeHandler = (tabId) => {
     setActive(tabId);
   };
 
   const incomeHandler = (event) => {
-    setIncome(event.target.value);
+    setIncome(Number(event.target.value));
   };
   const incomeTypeHandler = (type) => {
     setIncomeType(type);
@@ -55,9 +57,9 @@ function App() {
 
     if (income > 0) {
       setSaveIncomeData(incomeData);
-  
+
       setActive(1);
-  
+
       setIncome("");
       setIncomeType("");
       setFrequency("Weekly");
@@ -65,24 +67,28 @@ function App() {
   };
 
   return (
-    <div className="app-position">
-        <Navigation activeTab={active} activeHandler={activeHandler} />
-        <div className="card">
-          <Header />
-          {active === 0 && (
-            <Income
-              incomeHandler={incomeHandler}
-              incomeTypeHandler={incomeTypeHandler}
-              frequencyHandler={frequencyHandler}
-              calculateHandler={calculateHandler}
-              income={income}
-              incomeType={incomeType}
-              frequency={frequency}
-            />
-          )}
-          {active === 1 && <IncomeDetails saveIncomeData={saveIncomeData} />}
+    <ThemeContext.Provider value={[theme, setTheme]}>
+      <div className={theme}>
+        <div className="app-position">
+          <Navigation activeTab={active} activeHandler={activeHandler} />
+          <div className="card">
+            <Header />
+            {active === 0 && (
+              <Income
+                incomeHandler={incomeHandler}
+                incomeTypeHandler={incomeTypeHandler}
+                frequencyHandler={frequencyHandler}
+                calculateHandler={calculateHandler}
+                income={income}
+                incomeType={incomeType}
+                frequency={frequency}
+              />
+            )}
+            {active === 1 && <IncomeDetails saveIncomeData={saveIncomeData} />}
+          </div>
         </div>
-    </div>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

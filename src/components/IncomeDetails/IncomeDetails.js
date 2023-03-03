@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import ThemeContext from "../../context/ThemeContext";
 import { shortenDecimal } from "../../helpers/helpers";
 import classes from "./IncomeDetails.module.css";
 import Row from "./Row/Row";
@@ -10,6 +12,7 @@ const freqConsts = {
 };
 
 const IncomeDetails = ({ saveIncomeData }) => {
+  const [theme] = useContext(ThemeContext);
   const { netWeekly, frequency } = saveIncomeData;
 
   const netFort = netWeekly * 2;
@@ -32,8 +35,8 @@ const IncomeDetails = ({ saveIncomeData }) => {
         <p>is your net <b>{frequency}</b> income</p>
       </div>
 
-      <div className={classes.details__table}>
-        <table>
+      <div>
+        <table className={theme === "light" ? classes.table : `${classes.table} dark`}>
           <thead>
             <tr>
               <th>Frequency</th>

@@ -42,7 +42,7 @@
 }
 .btn_container button {
   padding: 10px 20px;
-  border: 1px solid var(--grey);
+  border: 1px solid var(--secondary);
   border-radius: 6px;
   cursor: pointer;
 }

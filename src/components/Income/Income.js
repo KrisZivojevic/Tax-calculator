@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import ThemeContext from "../../context/ThemeContext";
 import classes from "./Income.module.css";
 
 const Income = ({
@@ -9,6 +11,7 @@ const Income = ({
   frequencyHandler,
   calculateHandler,
 }) => {
+  const theme = useContext(ThemeContext);
   return (
     <section className={classes.income__section}>
       <p className="padding">What is your total income?</p>

@@ -1,5 +1,5 @@
 .details__section {
-  background-color: var(--green);
+  background-color: var(--details);
   padding: 20px;
   border-radius: 10px;
 }
@@ -12,16 +12,17 @@
   background-color: var(--kiwi);
   padding: 10px 20px;
   border-radius: 10px;
+  line-height: 20px;
 }
 .details__header p {
   line-height: 40px;
 }
-table {
-  background-color: var(--white);
+.table {
   padding: 20px;
   border-radius: 10px;
   border-collapse: collapse;
   width: 100%;
+  height: 100%;
 }
 th, td {
   padding: 10px;
@@ -30,18 +31,7 @@ th {
   text-align: left;
 }
 td {
-  border-top: 2px solid var(--grey);
-}
-.details__table {
-  padding: 30px;
-  background-color: var(--white);
-  border-radius: 10px;
-}
-
-@media only screen and (max-width: 730px) {
-  .details__table {
-    padding: 10px;
-  }
+  border-top: 2px solid var(--primary);
 }
 
 @media only screen and (max-width: 600px) {

@@ -7,11 +7,11 @@
   list-style-type: none;
   cursor: pointer;
   padding: 10px 20px;
-  background-color: var(--grey);
+  background-color: var(--tab);
   border-radius: 10px 10px 0 0;
 }
 .active {
-  background-color: var(--green);
+  background-color: var(--active);
 }
 .nav__list li:hover {
   background-color: var(--green);
